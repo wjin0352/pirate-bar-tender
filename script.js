@@ -1,18 +1,22 @@
 // Create constructor functions for questions, ingredients, and the pantry (which will contain all of the available ingredients). Then use these constructors to create objects representing the bartenders questions, ingredients and pantry.
 
 $(function(){
-
+  question;
+  ingredient;
+  // askQuestion();
 });
 
 var Question = function() {
-  this.question1 = "Do ye like yer drinks strong?";
-  this.question2 = "Do ye like it with a salty tang?";
-  this.question3 = "Are ye a lubber who likes it bitter?";
-  this.question4 = "Would ye like a bit of sweetness with yer poison?";
-  this.question5 = "Are ye one for a fruity finish?";
+  this.questions =
+    [ "Do ye like yer drinks strong?",
+      "Do ye like it with a salty tang?",
+      "Are ye a lubber who likes it bitter?",
+      "Would ye like a bit of sweetness with yer poison?",
+      "Are ye one for a fruity finish?"
+    ];
 };
 
-question = new Question;
+var question = new Question;
 
 var Ingredient = function() {
   this.strong = ["Glug of rum", "slug of whisky", "splash of gin"];
@@ -22,4 +26,33 @@ var Ingredient = function() {
   this.fruity = ["Slice of orange", "dash of cassis", "cherry on top"];
 };
 
-ingredient = new Ingredient;
+var ingredient = new Ingredient;
+
+
+var User = function() {
+
+};
+
+
+var Controller = function() {
+
+}
+
+var controller = new Controller;
+
+
+
+
+// loop through question object for question length
+//   ask a question to the user object
+//   if the answer is true
+//     select a random ingredient from ingredient object and save to user object
+//   else
+//     either move on to next question or show they said no to this
+//   end
+// end while loop
+
+// return finished drink to user
+
+
+
