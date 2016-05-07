@@ -38,7 +38,23 @@ var Controller = function() {
 
 }
 
-var controller = new Controller;
+Controller.prototype.iterateThroughQuestions = function(questionObject) {
+  questionObject.forEach(function() {
+    // ask a question to user
+    // if true
+      // select random ingredient from ingredient obj save to user object
+    // else
+      // move to next question and note response.
+
+  });
+  // return finished drink
+}
+
+Controller.prototype.askQuestion = function() {
+
+};
+
+var controller = new Controller(question);
 
 
 
