@@ -93,8 +93,8 @@
   Controller.prototype.createForm = function() {
     var parent = $('.question-input');
     categories.forEach(function(cat) {
-      var questAns = ['<label for="'+ cat.ingredient[0] +'">'+ cat.prompt +'</label>',
-      '<input type="checkbox" id="'+ cat.ingredient[0] +'"><br>'].join("");
+      var questAns = ['<div><label for="'+ cat.ingredient[0] +'">'+ cat.prompt +'</label>',
+      '<input type="checkbox" id="'+ cat.ingredient[0] +'"></div><br>'].join("");
       $(parent).append(questAns);
     });
     var submit = '<input type="submit">';
