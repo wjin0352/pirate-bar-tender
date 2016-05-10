@@ -1,5 +1,59 @@
+html {
+  font-family: 'Trade Winds', cursive;
+}
+
 form {
   margin:0 auto;
   width: 50%;
   text-align: center;
+  margin-top:35%;
+  font-size:1.3em;
+}
+
+input {
+  margin-left:20px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  transform: scale(2);
+  -ms-transform: scale(2);
+  webkit-transform::; scale(2);
+}
+
+
+body {
+  color: white;
+  background-image: url("../images/piratebar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.outer {
+  width:100%;
+  height:100%;
+  /*display:none;*/
+  position:fixed;
+  top:0px;
+  left:0px;
+  background:rgba(0,0,0,0.5);
+}
+
+.inner {
+  width:40%;
+  height:80%;
+  padding:;
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%, -50%);
+  transform:translate(-50%, -50%);
+  /*box-shadow:0px 2px 6px rgba(0,0,0,1);*/
+  border-radius:3px;
+  /*background:#fff;*/
+  background-color : transparent;
+  background-image: url("../images/scroll.gif");
+  background-size:cover;
+  background-repeat: no-repeat;
 }
