@@ -33,7 +33,7 @@ form {
 
 body {
   color: white;
-  background-image: url("/images/piratebar.jpg");
+  background-image: url("./images/piratebar.jpg");
   background-repeat: no-repeat;
   background-size:cover;
 }
@@ -61,7 +61,7 @@ body {
   border-radius:3px;
   /*background:#fff;*/
   background-color : transparent;
-  background-image: url("/images/scroll.gif");
+  background-image: url("./images/scroll.gif");
   background-size:cover;
   background-repeat: no-repeat;
 }
