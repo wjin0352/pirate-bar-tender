@@ -56,20 +56,41 @@
       ingredientList.push(cat.getRandomIngredient());
     });
     console.log(ingredientList);
+    controller.showRecipeIngredients(ingredientList);
   };
 
-  Drink.prototype.serialize = function() {
-    if (this.ingredients.length === 0) {
-      return "empty glass";
-    } else {
-      return this.ingredients.join(", ");
-    }
-  };
+  // Drink.prototype.serialize = function() {
+  //   if (this.ingredients.length === 0) {
+  //     return "empty glass";
+  //   } else {
+  //     return this.ingredients.join(", ");
+  //   }
+  // };
 
   drink = new Drink
 
   var Controller = function(question, ingredient, drink) {
   }
+
+  Controller.prototype.showRecipeIngredients = function(ingredientList) {
+    // jquery to change background on body
+    controller.changeBackground();
+    // replace or hide whats in the scroll and replace it with out ingredient results
+    $('.question-input div').css('display','none');
+    $('input.btn').attr('value','close');
+    // add a button to close results and go back to show the questions and return original background
+
+    // controller.unChangeBackground();
+  };
+
+  Controller.prototype.changeBackground = function() {
+    var picture = $('body');
+    picture.css('background-image', "url('./images/beach.jpg')");
+  };
+
+  Controller.prototype.unChangeBackground = function() {
+    $('body').css('background-image', "url('./images/piratebar.jpg')")
+  };
 
   Controller.prototype.checkFormResponse = function(responses) {
     var checked = [];
