@@ -1,3 +1,11 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-boz-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Trade Winds', cursive;
 }
@@ -33,7 +41,7 @@ form {
 
 body {
   color: white;
-  background-image: url("../images/piratebar.jpg");
+  background-image: url("./images/piratebar.jpg");
   background-repeat: no-repeat;
   background-size:cover;
 }
@@ -49,6 +57,7 @@ body {
 }
 
 .inner {
+  text-shadow: 2px 2px 4px #000000;
   width:35%;
   height:80%;
   padding:;
@@ -61,7 +70,18 @@ body {
   border-radius:3px;
   /*background:#fff;*/
   background-color : transparent;
-  background-image: url("../images/scroll.gif");
+  background-image: url("./images/scroll.gif");
   background-size:cover;
   background-repeat: no-repeat;
+}
+
+.btn {
+  border-radius:5px;
+  display:inline-block;
+  margin:0;
+}
+
+.btn-alt {
+  border:1px solid grey;
+  padding: 10px 30px;
 }

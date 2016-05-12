@@ -97,7 +97,7 @@
       '<input type="checkbox" id="'+ cat.ingredient[0] +'"></div><br>'].join("");
       $(parent).append(questAns);
     });
-    var submit = '<input type="submit">';
+    var submit = '<input type="submit" class="btn btn-alt" value="arugah!!!">';
     $(parent).append(submit);
   };
 
