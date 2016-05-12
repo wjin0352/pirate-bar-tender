@@ -76,6 +76,7 @@
     // jquery to change background on body
     var self = this;
     self.changeBackground();
+    self.hideQuestions();
     // setup resultsHTML
     var parent = $('.question-input');
     parent.html('');
@@ -122,7 +123,8 @@
   };
 
   Controller.prototype.hideQuestions = function() {
-    $('.question-input div').css('display','none');
+    $('.question-input div').remove('display','none');
+    $('.question-input br').remove();
   };
 
   Controller.prototype.unHideQuestions = function() {
