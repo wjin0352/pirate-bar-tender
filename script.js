@@ -56,7 +56,7 @@
       ingredientList.push(cat.getRandomIngredient());
     });
     console.log(ingredientList);
-    controller.showRecipeIngredients(ingredientList);
+    controller.showResults(ingredientList);
   };
 
   // Drink.prototype.serialize = function() {
@@ -72,15 +72,61 @@
   var Controller = function(question, ingredient, drink) {
   }
 
-  Controller.prototype.showRecipeIngredients = function(ingredientList) {
+  Controller.prototype.showResults = function(ingredientList) {
     // jquery to change background on body
-    controller.changeBackground();
-    // replace or hide whats in the scroll and replace it with out ingredient results
-    $('.question-input div').css('display','none');
-    $('input.btn').attr('value','close');
-    // add a button to close results and go back to show the questions and return original background
+    var self = this;
+    self.changeBackground();
+    // setup resultsHTML
+    var parent = $('.question-input');
+    parent.html('');
+    ingredientList.forEach(function(ingredient) {
+      var resultsHTML = '<li class="result">' + ingredient  + '</li><br>';
+      console.log(resultsHTML);
+      $(parent).append(resultsHTML);
+    });
+    var close = '<input type="submit" class="btn btn-alt close" value="close">';
+    $(parent).append(close);
 
-    // controller.unChangeBackground();
+    // attach close button event handler
+    self.attachHandlerCloseButton();
+
+
+    // replace or hide whats in the scroll and replace it with out ingredient results
+    // controller.hideQuestions();
+
+    // $('input.btn').attr('value','close');
+
+    // add a button to close results and go back to show the questions and return original background
+    // Having issues resetting the form button to work again, instead im going to re initialize the form
+    // $('input.btn').on('click', function(e) {
+    //   e.preventDefault();
+    //   $('form.question-input').trigger("reset");
+    //   $('form input.btn').trigger("reset");
+    //   controller.unChangeBackground();
+    //   controller.unHideQuestions();
+    // });
+  };
+
+  Controller.prototype.attachHandlerCloseButton = function() {
+    var self = this;
+    $('input.btn').on('click', function(e) {
+      self.clearResults();
+      self.unChangeBackground();
+      self.initialize();
+      e.preventDefault();
+    });
+  };
+
+  Controller.prototype.clearResults = function() {
+    $('.result, .close').remove();
+  };
+
+  Controller.prototype.hideQuestions = function() {
+    $('.question-input div').css('display','none');
+  };
+
+  Controller.prototype.unHideQuestions = function() {
+    $('.question-input div').css('display','block');
   };
 
   Controller.prototype.changeBackground = function() {
