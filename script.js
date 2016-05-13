@@ -55,7 +55,7 @@
     selectedCategories.forEach(function(cat) {
       ingredientList.push(cat.getRandomIngredient());
     });
-    console.log(ingredientList);
+    // console.log(ingredientList);
     controller.showResults(ingredientList);
   };
 
@@ -76,10 +76,10 @@
     // jquery to change background on body
     var self = this;
     self.changeBackground();
-    self.hideQuestions();
+    self.removeQuestions();
+    // console.log(ingredientList);
     // setup resultsHTML
     var parent = $('.question-input');
-    parent.html('');
     ingredientList.forEach(function(ingredient) {
       var resultsHTML = '<li class="result">' + ingredient  + '</li><br>';
       console.log(resultsHTML);
@@ -110,7 +110,7 @@
 
   Controller.prototype.attachHandlerCloseButton = function() {
     var self = this;
-    $('input.btn').on('click', function(e) {
+    $('input').on('click', function(e) {
       self.clearResults();
       self.unChangeBackground();
       self.initialize();
@@ -122,9 +122,8 @@
     $('.result, .close').remove();
   };
 
-  Controller.prototype.hideQuestions = function() {
-    $('.question-input div').remove('display','none');
-    $('.question-input br').remove();
+  Controller.prototype.removeQuestions = function() {
+    $('.question-input div, br, .btn').remove();
   };
 
   Controller.prototype.unHideQuestions = function() {
@@ -162,8 +161,12 @@
   Controller.prototype.createForm = function() {
     var parent = $('.question-input');
     categories.forEach(function(cat) {
-      var questAns = ['<div><label for="'+ cat.ingredient[0] +'">'+ cat.prompt +'</label>',
-      '<input type="checkbox" id="'+ cat.ingredient[0] +'"></div><br>'].join("");
+      var questAns = [
+        '<div>',
+          '<label for="'+ cat.ingredient[0] +'">'+ cat.prompt +'</label>',
+          '<input type="checkbox" id="'+ cat.ingredient[0] +'">',
+        '</div><br>'
+        ].join("");
       $(parent).append(questAns);
     });
     var submit = '<input type="submit" class="btn btn-alt" value="arugah!!!">';
