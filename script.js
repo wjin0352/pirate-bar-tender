@@ -95,7 +95,7 @@
 
   Controller.prototype.changeBackground = function() {
     var picture = $('body');
-    var bk = picture.css('background-image', "url('./images/sand.jpg')");
+    var bk = picture.css('background-image', "url('./images/beach.jpg')");
 
   };
 
