@@ -1,6 +1,4 @@
-// Create constructor functions for questions, ingredients, and the pantry (which will contain all of the available ingredients). Then use these constructors to create objects representing the bartenders questions, ingredients and pantry.
 (function(){
-
   $(function(){
     controller.initialize();
   });
@@ -67,8 +65,6 @@
     var self = this;
     self.clearResults();
     self.changeBackground();
-    // console.log(ingredientList);
-    // setup resultsHTML
     var parent = $('.question-input');
     ingredientList.forEach(function(ingredient) {
       var resultsHTML = '<li class="result">' + ingredient  + '</li><br>';
@@ -99,11 +95,12 @@
 
   Controller.prototype.changeBackground = function() {
     var picture = $('body');
-    picture.css('background-image', "url('./images/beach.jpg')");
+    var bk = picture.css('background-image', "url('./images/sand.jpg')");
+
   };
 
   Controller.prototype.unChangeBackground = function() {
-    $('body').css('background-image', "url('./images/piratebar.jpg')")
+    $('body').css('background-image', "url('./images/piratefree1.jpg')")
   };
 
   Controller.prototype.checkFormResponse = function(responses) {
