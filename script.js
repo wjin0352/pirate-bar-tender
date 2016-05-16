@@ -51,21 +51,11 @@
   };
 
   Drink.prototype.addIngredient = function(selectedCategories) {
-    var ingredientList = [];
+    var ingredients = this.ingredients = [];
     selectedCategories.forEach(function(cat) {
-      ingredientList.push(cat.getRandomIngredient());
+      ingredients.push(cat.getRandomIngredient());
     });
-    // console.log(ingredientList);
-    controller.showResults(ingredientList);
   };
-
-  // Drink.prototype.serialize = function() {
-  //   if (this.ingredients.length === 0) {
-  //     return "empty glass";
-  //   } else {
-  //     return this.ingredients.join(", ");
-  //   }
-  // };
 
   drink = new Drink
 
@@ -75,8 +65,8 @@
   Controller.prototype.showResults = function(ingredientList) {
     // jquery to change background on body
     var self = this;
+    self.clearResults();
     self.changeBackground();
-    self.removeQuestions();
     // console.log(ingredientList);
     // setup resultsHTML
     var parent = $('.question-input');
@@ -87,43 +77,20 @@
     });
     var close = '<input type="submit" class="btn btn-alt close" value="close">';
     $(parent).append(close);
-
-    // attach close button event handler
-    self.attachHandlerCloseButton();
-
-
-    // replace or hide whats in the scroll and replace it with out ingredient results
-    // controller.hideQuestions();
-
-    // $('input.btn').attr('value','close');
-
-    // add a button to close results and go back to show the questions and return original background
-    // Having issues resetting the form button to work again, instead im going to re initialize the form
-    // $('input.btn').on('click', function(e) {
-    //   e.preventDefault();
-    //   $('form.question-input').trigger("reset");
-    //   $('form input.btn').trigger("reset");
-    //   controller.unChangeBackground();
-    //   controller.unHideQuestions();
-    // });
   };
 
   Controller.prototype.attachHandlerCloseButton = function() {
     var self = this;
-    $('input').on('click', function(e) {
+    $('.question-input').on('click', '.close', function(e) {
       self.clearResults();
       self.unChangeBackground();
-      self.initialize();
+      self.createForm();
       e.preventDefault();
     });
   };
 
   Controller.prototype.clearResults = function() {
-    $('.result, .close').remove();
-  };
-
-  Controller.prototype.removeQuestions = function() {
-    $('.question-input div, br, .btn').remove();
+    $('.question-input').html('');
   };
 
   Controller.prototype.unHideQuestions = function() {
@@ -148,6 +115,7 @@
       };
     };
     drink.addIngredient(checked);
+    controller.showResults(drink.ingredients);
   };
 
   Controller.prototype.attachHandlerFormSubmit = function() {
@@ -176,6 +144,7 @@
   Controller.prototype.initialize = function() {
     this.createForm();
     this.attachHandlerFormSubmit();
+    this.attachHandlerCloseButton();
   };
 
   var controller = new Controller(question, ingredient, drink);
