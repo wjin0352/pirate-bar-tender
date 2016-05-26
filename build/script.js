@@ -79,6 +79,7 @@
   Controller.prototype.attachHandlerCloseButton = function() {
     // var self = this;
     $('.question-input').on('click', '.close', (function(e) {
+      // self.clearResults();
       this.clearResults();
       this.unChangeBackground();
       this.createForm();
@@ -97,7 +98,6 @@
   Controller.prototype.changeBackground = function() {
     var picture = $('body');
     var bk = picture.css('background-image', "url('./images/beach.jpg')");
-
   };
 
   Controller.prototype.unChangeBackground = function() {
