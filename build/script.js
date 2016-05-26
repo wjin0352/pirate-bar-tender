@@ -77,13 +77,13 @@
   };
 
   Controller.prototype.attachHandlerCloseButton = function() {
-    var self = this;
-    $('.question-input').on('click', '.close', function(e) {
-      self.clearResults();
-      self.unChangeBackground();
-      self.createForm();
+    // var self = this;
+    $('.question-input').on('click', '.close', (function(e) {
+      this.clearResults();
+      this.unChangeBackground();
+      this.createForm();
       e.preventDefault();
-    });
+    }).bind(this));
   };
 
   Controller.prototype.clearResults = function() {
